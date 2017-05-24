@@ -21,6 +21,7 @@ protocol BeerDetailViewable: BeerViewable {
 
 extension BeerDetailViewable where Self: UIViewController {
     func setupDetail(beer: Beer) {
+        title = beer.name
         taglineLabel.text = beer.tagline
         bitternessScaleLabel.text = "Bitterness Scale: \(beer.bitternessScale)"
         descriptionLabel.text = beer.description
