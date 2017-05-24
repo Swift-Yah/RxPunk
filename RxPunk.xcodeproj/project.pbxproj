@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5347631C1ED5252700656233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347631B1ED5252700656233 /* AppDelegate.swift */; };
-		5347631E1ED5252700656233 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347631D1ED5252700656233 /* ViewController.swift */; };
+		5347631E1ED5252700656233 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347631D1ED5252700656233 /* HomeController.swift */; };
 		534763211ED5252700656233 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5347631F1ED5252700656233 /* Main.storyboard */; };
 		534763231ED5252700656233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 534763221ED5252700656233 /* Assets.xcassets */; };
 		534763261ED5252700656233 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 534763241ED5252700656233 /* LaunchScreen.storyboard */; };
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		534763181ED5252700656233 /* RxPunk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxPunk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5347631B1ED5252700656233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5347631D1ED5252700656233 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5347631D1ED5252700656233 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		534763201ED5252700656233 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		534763221ED5252700656233 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		534763251ED5252700656233 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,9 +59,9 @@
 		5347630F1ED5252700656233 = {
 			isa = PBXGroup;
 			children = (
+				534763191ED5252700656233 /* Products */,
 				5347631A1ED5252700656233 /* RxPunk */,
 				5347632F1ED5252700656233 /* RxPunkTests */,
-				534763191ED5252700656233 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +77,10 @@
 		5347631A1ED5252700656233 /* RxPunk */ = {
 			isa = PBXGroup;
 			children = (
-				5347631B1ED5252700656233 /* AppDelegate.swift */,
-				5347631D1ED5252700656233 /* ViewController.swift */,
-				5347631F1ED5252700656233 /* Main.storyboard */,
-				534763221ED5252700656233 /* Assets.xcassets */,
-				534763241ED5252700656233 /* LaunchScreen.storyboard */,
-				534763271ED5252700656233 /* Info.plist */,
+				5347633B1ED5274A00656233 /* Commons */,
+				5347633C1ED5274F00656233 /* Controllers */,
+				5347633E1ED5276D00656233 /* Resources */,
+				5347633D1ED5275B00656233 /* Storyboards */,
 			);
 			path = RxPunk;
 			sourceTree = "<group>";
@@ -90,10 +88,48 @@
 		5347632F1ED5252700656233 /* RxPunkTests */ = {
 			isa = PBXGroup;
 			children = (
-				534763301ED5252700656233 /* RxPunkTests.swift */,
 				534763321ED5252700656233 /* Info.plist */,
+				534763301ED5252700656233 /* RxPunkTests.swift */,
 			);
 			path = RxPunkTests;
+			sourceTree = "<group>";
+		};
+		5347633B1ED5274A00656233 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				5347631B1ED5252700656233 /* AppDelegate.swift */,
+			);
+			name = Commons;
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		5347633C1ED5274F00656233 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5347631D1ED5252700656233 /* HomeController.swift */,
+			);
+			name = Controllers;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5347633D1ED5275B00656233 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				534763241ED5252700656233 /* LaunchScreen.storyboard */,
+				5347631F1ED5252700656233 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5347633E1ED5276D00656233 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				534763221ED5252700656233 /* Assets.xcassets */,
+				534763271ED5252700656233 /* Info.plist */,
+			);
+			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5347631E1ED5252700656233 /* ViewController.swift in Sources */,
+				5347631E1ED5252700656233 /* HomeController.swift in Sources */,
 				5347631C1ED5252700656233 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +267,7 @@
 				534763201ED5252700656233 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		534763241ED5252700656233 /* LaunchScreen.storyboard */ = {
@@ -239,6 +276,7 @@
 				534763251ED5252700656233 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -344,7 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LQ5WW9469F;
-				INFOPLIST_FILE = RxPunk/Info.plist;
+				INFOPLIST_FILE = RxPunk/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.swift-yah.RxPunk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,7 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LQ5WW9469F;
-				INFOPLIST_FILE = RxPunk/Info.plist;
+				INFOPLIST_FILE = RxPunk/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.swift-yah.RxPunk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
