@@ -8,6 +8,7 @@ target 'RxPunk' do
   pod 'ReachabilitySwift'
   pod 'Kingfisher'
   pod 'RxDataSources'
+  pod 'NSObject+Rx'
 
   target 'RxPunkTests' do
     inherit! :search_paths
