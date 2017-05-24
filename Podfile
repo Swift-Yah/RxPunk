@@ -6,6 +6,8 @@ target 'RxPunk' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'ReachabilitySwift'
+  pod 'Kingfisher'
+  pod 'RxDataSources'
 
   target 'RxPunkTests' do
     inherit! :search_paths

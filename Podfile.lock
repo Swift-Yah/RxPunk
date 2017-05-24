@@ -1,19 +1,27 @@
 PODS:
+  - Kingfisher (3.9.1)
   - ReachabilitySwift (3)
   - RxCocoa (3.4.1):
     - RxSwift (~> 3.4)
+  - RxDataSources (1.0.3):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
   - RxSwift (3.4.1)
 
 DEPENDENCIES:
+  - Kingfisher
   - ReachabilitySwift
   - RxCocoa
+  - RxDataSources
   - RxSwift
 
 SPEC CHECKSUMS:
+  Kingfisher: 6729a0baaa458245bfb8cd5a1296c71c10d6eb6c
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
+  RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
 
-PODFILE CHECKSUM: 1d4bd2fc454c36ae32638048197d80f32f404fca
+PODFILE CHECKSUM: c2e8ed6753f4a8daba663cbab6b2663a3c487b8c
 
 COCOAPODS: 1.2.1
