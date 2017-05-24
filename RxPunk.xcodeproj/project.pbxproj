@@ -18,6 +18,19 @@
 		532D746E1ED54B6F00D2223A /* ReachabilityServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D746D1ED54B6F00D2223A /* ReachabilityServiceError.swift */; };
 		532D74701ED54BAE00D2223A /* DefaultReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D746F1ED54BAE00D2223A /* DefaultReachabilityService.swift */; };
 		532D74731ED54CD900D2223A /* ObservableConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74721ED54CD900D2223A /* ObservableConvertibleType.swift */; };
+		532D74751ED557F700D2223A /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74741ED557F700D2223A /* DetailController.swift */; };
+		532D74781ED55AE700D2223A /* BeerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74771ED55AE700D2223A /* BeerCell.swift */; };
+		532D747B1ED55B8500D2223A /* BeerViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D747A1ED55B8500D2223A /* BeerViewable.swift */; };
+		532D747D1ED55DB900D2223A /* BeerDetailViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D747C1ED55DB900D2223A /* BeerDetailViewable.swift */; };
+		532D74801ED5608F00D2223A /* StoryboardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D747F1ED5608F00D2223A /* StoryboardSegue.swift */; };
+		532D74831ED5611D00D2223A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74821ED5611D00D2223A /* HomeViewModel.swift */; };
+		532D74851ED5624C00D2223A /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74841ED5624C00D2223A /* UIScrollView.swift */; };
+		532D74871ED562AC00D2223A /* Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74861ED562AC00D2223A /* Reactive.swift */; };
+		532D74891ED56A8D00D2223A /* Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74881ED56A8D00D2223A /* Unique.swift */; };
+		532D748B1ED56ABB00D2223A /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D748A1ED56ABB00D2223A /* Version.swift */; };
+		532D748E1ED56DD500D2223A /* PunkCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D748D1ED56DD500D2223A /* PunkCommand.swift */; };
+		532D74911ED56F6000D2223A /* PunkBeersState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74901ED56F6000D2223A /* PunkBeersState.swift */; };
+		532D74931ED5715E00D2223A /* Mutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74921ED5715E00D2223A /* Mutable.swift */; };
 		5347631C1ED5252700656233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347631B1ED5252700656233 /* AppDelegate.swift */; };
 		5347631E1ED5252700656233 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5347631D1ED5252700656233 /* HomeController.swift */; };
 		534763211ED5252700656233 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5347631F1ED5252700656233 /* Main.storyboard */; };
@@ -52,6 +65,19 @@
 		532D746D1ED54B6F00D2223A /* ReachabilityServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityServiceError.swift; sourceTree = "<group>"; };
 		532D746F1ED54BAE00D2223A /* DefaultReachabilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultReachabilityService.swift; sourceTree = "<group>"; };
 		532D74721ED54CD900D2223A /* ObservableConvertibleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableConvertibleType.swift; sourceTree = "<group>"; };
+		532D74741ED557F700D2223A /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		532D74771ED55AE700D2223A /* BeerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerCell.swift; sourceTree = "<group>"; };
+		532D747A1ED55B8500D2223A /* BeerViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerViewable.swift; sourceTree = "<group>"; };
+		532D747C1ED55DB900D2223A /* BeerDetailViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerDetailViewable.swift; sourceTree = "<group>"; };
+		532D747F1ED5608F00D2223A /* StoryboardSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardSegue.swift; sourceTree = "<group>"; };
+		532D74821ED5611D00D2223A /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		532D74841ED5624C00D2223A /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		532D74861ED562AC00D2223A /* Reactive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactive.swift; sourceTree = "<group>"; };
+		532D74881ED56A8D00D2223A /* Unique.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unique.swift; sourceTree = "<group>"; };
+		532D748A1ED56ABB00D2223A /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		532D748D1ED56DD500D2223A /* PunkCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PunkCommand.swift; sourceTree = "<group>"; };
+		532D74901ED56F6000D2223A /* PunkBeersState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PunkBeersState.swift; sourceTree = "<group>"; };
+		532D74921ED5715E00D2223A /* Mutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutable.swift; sourceTree = "<group>"; };
 		534763181ED5252700656233 /* RxPunk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxPunk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5347631B1ED5252700656233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5347631D1ED5252700656233 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -113,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				532D745C1ED533CE00D2223A /* Beer.swift */,
+				532D74881ED56A8D00D2223A /* Unique.swift */,
+				532D748A1ED56ABB00D2223A /* Version.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,8 +160,60 @@
 			isa = PBXGroup;
 			children = (
 				532D74721ED54CD900D2223A /* ObservableConvertibleType.swift */,
+				532D74861ED562AC00D2223A /* Reactive.swift */,
+				532D74841ED5624C00D2223A /* UIScrollView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		532D74761ED55AB100D2223A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				532D74771ED55AE700D2223A /* BeerCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		532D74791ED55B6200D2223A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				532D747C1ED55DB900D2223A /* BeerDetailViewable.swift */,
+				532D747A1ED55B8500D2223A /* BeerViewable.swift */,
+				532D74921ED5715E00D2223A /* Mutable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		532D747E1ED5607200D2223A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				532D747F1ED5608F00D2223A /* StoryboardSegue.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		532D74811ED5610100D2223A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				532D74821ED5611D00D2223A /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		532D748C1ED56DBC00D2223A /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				532D748D1ED56DD500D2223A /* PunkCommand.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
+		532D748F1ED56F0400D2223A /* States */ = {
+			isa = PBXGroup;
+			children = (
+				532D74901ED56F6000D2223A /* PunkBeersState.swift */,
+			);
+			path = States;
 			sourceTree = "<group>";
 		};
 		5347630F1ED5252700656233 = {
@@ -159,14 +239,20 @@
 		5347631A1ED5252700656233 /* RxPunk */ = {
 			isa = PBXGroup;
 			children = (
-				532D74711ED54CB800D2223A /* Extensions */,
+				532D748C1ED56DBC00D2223A /* Commands */,
 				5347633B1ED5274A00656233 /* Commons */,
 				5347633C1ED5274F00656233 /* Controllers */,
+				532D74711ED54CB800D2223A /* Extensions */,
 				532D745B1ED5339900D2223A /* Models */,
 				532D74581ED532D200D2223A /* Networking */,
+				532D74791ED55B6200D2223A /* Protocols */,
 				5347633E1ED5276D00656233 /* Resources */,
 				532D74661ED5493300D2223A /* Services */,
+				532D748F1ED56F0400D2223A /* States */,
 				5347633D1ED5275B00656233 /* Storyboards */,
+				532D747E1ED5607200D2223A /* Utilities */,
+				532D74811ED5610100D2223A /* ViewModels */,
+				532D74761ED55AB100D2223A /* Views */,
 			);
 			path = RxPunk;
 			sourceTree = "<group>";
@@ -192,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				5347631D1ED5252700656233 /* HomeController.swift */,
+				532D74741ED557F700D2223A /* DetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -429,16 +516,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				532D74831ED5611D00D2223A /* HomeViewModel.swift in Sources */,
+				532D748E1ED56DD500D2223A /* PunkCommand.swift in Sources */,
+				532D747D1ED55DB900D2223A /* BeerDetailViewable.swift in Sources */,
+				532D74781ED55AE700D2223A /* BeerCell.swift in Sources */,
 				532D74701ED54BAE00D2223A /* DefaultReachabilityService.swift in Sources */,
 				532D746C1ED54B4E00D2223A /* ReachabilityService.swift in Sources */,
+				532D74851ED5624C00D2223A /* UIScrollView.swift in Sources */,
+				532D748B1ED56ABB00D2223A /* Version.swift in Sources */,
+				532D74931ED5715E00D2223A /* Mutable.swift in Sources */,
 				532D74611ED5399B00D2223A /* DefaultPunkAPI.swift in Sources */,
 				5347631E1ED5252700656233 /* HomeController.swift in Sources */,
+				532D74911ED56F6000D2223A /* PunkBeersState.swift in Sources */,
 				532D74731ED54CD900D2223A /* ObservableConvertibleType.swift in Sources */,
 				532D745F1ED5376C00D2223A /* APIKeys.swift in Sources */,
+				532D74891ED56A8D00D2223A /* Unique.swift in Sources */,
 				532D745A1ED5331600D2223A /* PunkAPI.swift in Sources */,
 				532D74631ED5432D00D2223A /* Result.swift in Sources */,
+				532D74871ED562AC00D2223A /* Reactive.swift in Sources */,
+				532D74751ED557F700D2223A /* DetailController.swift in Sources */,
+				532D747B1ED55B8500D2223A /* BeerViewable.swift in Sources */,
 				532D746A1ED54B1D00D2223A /* ReachabilityStatus.swift in Sources */,
 				532D746E1ED54B6F00D2223A /* ReachabilityServiceError.swift in Sources */,
+				532D74801ED5608F00D2223A /* StoryboardSegue.swift in Sources */,
 				532D74651ED543B600D2223A /* PunkAPIError.swift in Sources */,
 				5347631C1ED5252700656233 /* AppDelegate.swift in Sources */,
 				532D745D1ED533CE00D2223A /* Beer.swift in Sources */,

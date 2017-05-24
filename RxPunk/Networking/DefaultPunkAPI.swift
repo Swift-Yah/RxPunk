@@ -67,13 +67,20 @@ private extension Beer {
     static func parse(json: [[String: Any]]) throws -> [Beer] {
         return json.map({ beer in
             guard let alcoholLevel = beer[APIKeys.alcoholLevel.$] as? Float,
-                let bitternessScale = beer[APIKeys.bitternessScale.$] as? Float,
                 let description = beer[APIKeys.description.$] as? String,
                 let imageURLString = beer[APIKeys.imageURL.$] as? String,
                 let imageURL = URL(string: imageURLString),
                 let name = beer[APIKeys.name.$] as? String,
-                let tagline = beer[APIKeys.description.$] as? String else {
+                let tagline = beer[APIKeys.tagline.$] as? String else {
                     fatalError()
+            }
+
+            let bitternessScale: Float
+
+            if let value = beer[APIKeys.bitternessScale.$] as? Float {
+                bitternessScale = value
+            } else {
+                bitternessScale = 0
             }
 
             return Beer(alcoholLevel: alcoholLevel, bitternessScale: bitternessScale, description: description,
