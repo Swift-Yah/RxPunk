@@ -7,12 +7,13 @@
 //
 
 import class UIKit.UILabel
+import class UIKit.UITextView
 import class UIKit.UIViewController
 
 protocol BeerDetailViewable: BeerViewable {
     var taglineLabel: UILabel! { get set }
     var bitternessScaleLabel: UILabel! { get set }
-    var descriptionLabel: UILabel! { get set }
+    var descriptionTextView: UITextView! { get set }
 
     func setupDetail(beer: Beer)
 }
@@ -24,6 +25,6 @@ extension BeerDetailViewable where Self: UIViewController {
         title = beer.name
         taglineLabel.text = beer.tagline
         bitternessScaleLabel.text = "Bitterness Scale: \(beer.bitternessScale)"
-        descriptionLabel.text = beer.description
+        descriptionTextView.text = beer.description
     }
 }

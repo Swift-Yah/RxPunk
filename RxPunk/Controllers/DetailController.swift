@@ -8,6 +8,7 @@
 
 import class UIKit.UIImageView
 import class UIKit.UILabel
+import class UIKit.UITextView
 import class UIKit.UIViewController
 
 final class DetailController: UIViewController, BeerDetailViewable {
@@ -16,7 +17,7 @@ final class DetailController: UIViewController, BeerDetailViewable {
     @IBOutlet weak var taglineLabel: UILabel!
     @IBOutlet weak var alcoholLevelLabel: UILabel!
     @IBOutlet weak var bitternessScaleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     // MARK: File private variables
     

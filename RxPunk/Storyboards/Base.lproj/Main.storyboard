@@ -144,29 +144,29 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94i-kK-kWO">
-                                        <rect key="frame" x="15" y="263" width="345" height="20.5"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Descrição" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KF0-SN-uen">
+                                        <rect key="frame" x="15" y="263" width="345" height="325"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="94i-kK-kWO" secondAttribute="bottom" constant="15" id="23h-6n-fOV"/>
                                     <constraint firstAttribute="bottom" secondItem="6wf-jL-tcm" secondAttribute="bottom" id="3ce-Im-ZrM"/>
+                                    <constraint firstAttribute="trailing" secondItem="KF0-SN-uen" secondAttribute="trailing" constant="15" id="4CY-0y-jMg"/>
                                     <constraint firstItem="6wf-jL-tcm" firstAttribute="centerY" secondItem="Gwp-Br-42c" secondAttribute="centerY" id="7Dg-Ss-RkO"/>
                                     <constraint firstAttribute="trailing" secondItem="XfV-PL-pGf" secondAttribute="trailing" constant="30" id="849-Ma-OUs"/>
+                                    <constraint firstItem="KF0-SN-uen" firstAttribute="leading" secondItem="Gwp-Br-42c" secondAttribute="leading" constant="15" id="8LU-Ob-L5q"/>
                                     <constraint firstItem="sDR-hc-YjH" firstAttribute="leading" secondItem="Gwp-Br-42c" secondAttribute="leading" constant="15" id="8Tb-EA-5Xw"/>
                                     <constraint firstItem="6wf-jL-tcm" firstAttribute="top" secondItem="Gwp-Br-42c" secondAttribute="top" id="Cg0-Sf-Dy9"/>
                                     <constraint firstAttribute="trailing" secondItem="QL6-BN-RW2" secondAttribute="trailing" constant="15" id="FgO-Vt-PmV"/>
                                     <constraint firstAttribute="trailing" secondItem="sDR-hc-YjH" secondAttribute="trailing" constant="15" id="HGp-qw-Lk8"/>
                                     <constraint firstItem="QL6-BN-RW2" firstAttribute="top" secondItem="sDR-hc-YjH" secondAttribute="bottom" constant="15" id="Hcb-JC-E6o"/>
                                     <constraint firstItem="6wf-jL-tcm" firstAttribute="leading" secondItem="Gwp-Br-42c" secondAttribute="leading" id="Lc1-qb-Uar"/>
-                                    <constraint firstAttribute="trailing" secondItem="94i-kK-kWO" secondAttribute="trailing" constant="15" id="QVq-ce-6rF"/>
+                                    <constraint firstItem="KF0-SN-uen" firstAttribute="top" secondItem="GeF-K8-W85" secondAttribute="bottom" constant="15" id="Suv-4f-fT0"/>
                                     <constraint firstItem="QL6-BN-RW2" firstAttribute="leading" secondItem="Gwp-Br-42c" secondAttribute="leading" constant="15" id="Td7-oU-6T0"/>
                                     <constraint firstItem="6wf-jL-tcm" firstAttribute="centerX" secondItem="Gwp-Br-42c" secondAttribute="centerX" id="YHO-03-TTx"/>
-                                    <constraint firstItem="94i-kK-kWO" firstAttribute="top" secondItem="GeF-K8-W85" secondAttribute="bottom" constant="15" id="Ygo-Zg-rv5"/>
-                                    <constraint firstItem="94i-kK-kWO" firstAttribute="leading" secondItem="Gwp-Br-42c" secondAttribute="leading" constant="15" id="bya-UR-mNF"/>
+                                    <constraint firstAttribute="bottom" secondItem="KF0-SN-uen" secondAttribute="bottom" constant="15" id="e31-9f-4bk"/>
                                     <constraint firstAttribute="trailing" secondItem="GeF-K8-W85" secondAttribute="trailing" constant="15" id="gPv-7N-LaN"/>
                                     <constraint firstAttribute="trailing" secondItem="6wf-jL-tcm" secondAttribute="trailing" id="gQF-xo-5mk"/>
                                     <constraint firstItem="sDR-hc-YjH" firstAttribute="top" secondItem="Gwp-Br-42c" secondAttribute="top" constant="15" id="h7j-Cj-BT7"/>
@@ -189,7 +189,7 @@
                         <outlet property="alcoholLevelLabel" destination="wgd-PQ-Zgo" id="D69-nk-MPC"/>
                         <outlet property="beerImageView" destination="sDR-hc-YjH" id="gNX-96-Kxt"/>
                         <outlet property="bitternessScaleLabel" destination="FpS-RM-35j" id="PfV-bu-xUg"/>
-                        <outlet property="descriptionLabel" destination="94i-kK-kWO" id="hfb-7K-T2R"/>
+                        <outlet property="descriptionTextView" destination="KF0-SN-uen" id="q74-zO-srf"/>
                         <outlet property="nameLabel" destination="QL6-BN-RW2" id="QMx-o7-2nk"/>
                         <outlet property="taglineLabel" destination="XfV-PL-pGf" id="wJg-wG-mfo"/>
                     </connections>
