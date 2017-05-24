@@ -14,7 +14,7 @@ struct HomeViewModel {
     let result: Observable<DefaultPunkAPI.GetBeersResponse>
 
     init(loadNextPageTrigger: Observable<Void>, api: DefaultPunkAPI) {
-        let url = URL(string: "https://api.punkapi.com/v2/beers")!
+        let url = URL(string: "https://api.punkapi.com/v2/beers?per_page=80")!
 
         result = loadNextPageTrigger.flatMapLatest({
             return api.getBeers(at: url, nextPageTrigger: loadNextPageTrigger)

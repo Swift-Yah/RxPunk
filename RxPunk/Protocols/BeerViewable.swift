@@ -22,7 +22,7 @@ protocol BeerViewable: class {
 
 extension BeerViewable {
     func setup(beer: Beer) {
-        beerImageView.kf.setImage(with: beer.imageURL)
+        beerImageView.kf.setImage(with: beer.imageURL, placeholder: #imageLiteral(resourceName: "BrewDog"), options: [.transition(.fade(0.2))])
         nameLabel.text = beer.name
         alcoholLevelLabel.text = "Alcohol Level: \(beer.alcoholLevel)"
     }
