@@ -84,7 +84,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="T0l-wZ-Fhb" id="gJq-jB-gKV"/>
-                        <segue destination="Ryt-9G-jNG" kind="show" identifier="showDetails" id="4V6-Vf-NSM"/>
+                        <segue destination="Ryt-9G-jNG" kind="show" identifier="showDetail" id="4V6-Vf-NSM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

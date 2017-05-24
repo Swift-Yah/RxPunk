@@ -8,6 +8,8 @@
 
 import NSObject_Rx
 import RxDataSources
+import protocol RxSwift.ImmediateSchedulerType
+import class RxSwift.OperationQueueScheduler
 import class UIKit.UITableView
 import class UIKit.UIViewController
 
@@ -33,6 +35,14 @@ extension HomeController {
 // MARK: Private functions
 
 private extension HomeController {
+    func getBackgroundWorker() -> ImmediateSchedulerType {
+        let operationQueue = OperationQueue()
+
+        operationQueue.maxConcurrentOperationCount = 2
+
+        return OperationQueueScheduler(operationQueue: operationQueue)
+    }
+
     func setupDataSource() {
         dataSource.configureCell = { (_, tableView, indexPath, beer) in
             let id = String(describing: BeerCell.self)
@@ -52,9 +62,26 @@ private extension HomeController {
     }
 
     func setupRx() {
-        let viewModel = HomeViewModel()
+        let backgroundWorker = getBackgroundWorker()
+        let api = DefaultPunkAPI(backgroundWorker: backgroundWorker,
+                                 itemsPerPage: 25,
+                                 reachabilityService: try! DefaultReachabilityService(),
+                                 urlSession: URLSession.shared)
 
-        viewModel.beers!.drive(tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+        let viewModel = HomeViewModel(loadNextPageTrigger: tableView.rx.nextPageTrigger, api: api)
+
+        viewModel.result.map({ result -> [Beer] in
+            switch result {
+            case let .success(result):
+                return result.beers
+            default:
+                return []
+            }
+        })
+            .map({ [SectionModel(model: "Beers", items: $0)] })
+            .asDriver(onErrorJustReturn: [])
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: rx.disposeBag)
 
 
         tableView.rx.modelSelected(Beer.self).asDriver()
