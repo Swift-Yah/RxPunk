@@ -6,6 +6,8 @@
 //  Copyright © 2017 Swift Yah. All rights reserved.
 //
 
+import struct Foundation.URL
+
 enum APIKeys: String {
     case alcoholLevel = "abv"
     case bitternessScale = "ibu"
@@ -20,5 +22,13 @@ enum APIKeys: String {
 extension APIKeys {
     var $: String {
         return rawValue
+    }
+}
+
+// MARK: Static closures
+
+extension APIKeys {
+    static let getBeers: (Int) -> URL? = { page in
+        return URL(string: "https://api.punkapi.com/v2/beers?page=\(page)")
     }
 }
