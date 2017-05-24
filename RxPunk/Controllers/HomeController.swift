@@ -32,9 +32,8 @@ extension HomeController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let beer = sender as? Beer {
-            (segue.destination as? DetailController)?.setup(beer: beer)
-            (segue.destination as? DetailController)?.setupDetail(beer: beer)
+        if let beer = sender as? Beer, let controller = segue.destination as? DetailController {
+            controller.set(beer: beer)
         }
     }
 }

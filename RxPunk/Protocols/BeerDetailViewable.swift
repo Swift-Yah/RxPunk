@@ -21,8 +21,8 @@ protocol BeerDetailViewable: BeerViewable {
 
 extension BeerDetailViewable where Self: UIViewController {
     func setupDetail(beer: Beer) {
-        beerImageView.kf.setImage(with: beer.imageURL)
-        nameLabel.text = beer.name
-        alcoholLevelLabel.text = "Alcohol: \(beer.alcoholLevel)"
+        taglineLabel.text = beer.tagline
+        bitternessScaleLabel.text = "Bitterness Scale: \(beer.bitternessScale)"
+        descriptionLabel.text = beer.description
     }
 }

@@ -17,4 +17,37 @@ final class DetailController: UIViewController, BeerDetailViewable {
     @IBOutlet weak var alcoholLevelLabel: UILabel!
     @IBOutlet weak var bitternessScaleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    // MARK: File private variables
+    
+    fileprivate var beer: Beer? = nil
+}
+
+// MARK: Functions
+
+extension DetailController {
+    func set(beer: Beer) {
+        self.beer = beer
+    }
+}
+
+// MARK: UIViewControllers functions
+
+extension DetailController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupUI()
+    }
+}
+
+// MARK: Private functions
+
+private extension DetailController {
+    func setupUI() {
+        guard let beer = beer else { return }
+        
+        setup(beer: beer)
+        setupDetail(beer: beer)
+    }
 }

@@ -24,6 +24,6 @@ extension BeerViewable {
     func setup(beer: Beer) {
         beerImageView.kf.setImage(with: beer.imageURL)
         nameLabel.text = beer.name
-        alcoholLevelLabel.text = "Alcohol: \(beer.alcoholLevel)"
+        alcoholLevelLabel.text = "Alcohol Level: \(beer.alcoholLevel)"
     }
 }
