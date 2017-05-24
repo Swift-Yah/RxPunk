@@ -6,8 +6,11 @@
 //  Copyright © 2017 Swift Yah. All rights reserved.
 //
 
+import struct Foundation.URL
 import class RxSwift.Observable
 
 protocol PunkAPI {
-    func getBeers(nextPageTrigger: Observable<Void>) -> Observable<[Beer]>
+    associatedtype GetBeersResponse
+    
+    func getBeers(at: URL, nextPageTrigger: Observable<Void>) -> Observable<GetBeersResponse>
 }

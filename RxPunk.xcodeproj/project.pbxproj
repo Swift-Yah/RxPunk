@@ -10,6 +10,9 @@
 		532D745A1ED5331600D2223A /* PunkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74591ED5331600D2223A /* PunkAPI.swift */; };
 		532D745D1ED533CE00D2223A /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D745C1ED533CE00D2223A /* Beer.swift */; };
 		532D745F1ED5376C00D2223A /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D745E1ED5376C00D2223A /* APIKeys.swift */; };
+		532D74611ED5399B00D2223A /* DefaultPunkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74601ED5399B00D2223A /* DefaultPunkAPI.swift */; };
+		532D74631ED5432D00D2223A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74621ED5432D00D2223A /* Result.swift */; };
+		532D74651ED543B600D2223A /* PunkAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74641ED543B600D2223A /* PunkAPIError.swift */; };
 		532D746A1ED54B1D00D2223A /* ReachabilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D74691ED54B1D00D2223A /* ReachabilityStatus.swift */; };
 		532D746C1ED54B4E00D2223A /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D746B1ED54B4E00D2223A /* ReachabilityService.swift */; };
 		532D746E1ED54B6F00D2223A /* ReachabilityServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D746D1ED54B6F00D2223A /* ReachabilityServiceError.swift */; };
@@ -41,6 +44,9 @@
 		532D74591ED5331600D2223A /* PunkAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PunkAPI.swift; sourceTree = "<group>"; };
 		532D745C1ED533CE00D2223A /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		532D745E1ED5376C00D2223A /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		532D74601ED5399B00D2223A /* DefaultPunkAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPunkAPI.swift; sourceTree = "<group>"; };
+		532D74621ED5432D00D2223A /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		532D74641ED543B600D2223A /* PunkAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PunkAPIError.swift; sourceTree = "<group>"; };
 		532D74691ED54B1D00D2223A /* ReachabilityStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityStatus.swift; sourceTree = "<group>"; };
 		532D746B1ED54B4E00D2223A /* ReachabilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
 		532D746D1ED54B6F00D2223A /* ReachabilityServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityServiceError.swift; sourceTree = "<group>"; };
@@ -95,7 +101,10 @@
 			isa = PBXGroup;
 			children = (
 				532D745E1ED5376C00D2223A /* APIKeys.swift */,
+				532D74601ED5399B00D2223A /* DefaultPunkAPI.swift */,
 				532D74591ED5331600D2223A /* PunkAPI.swift */,
+				532D74641ED543B600D2223A /* PunkAPIError.swift */,
+				532D74621ED5432D00D2223A /* Result.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -422,12 +431,15 @@
 			files = (
 				532D74701ED54BAE00D2223A /* DefaultReachabilityService.swift in Sources */,
 				532D746C1ED54B4E00D2223A /* ReachabilityService.swift in Sources */,
+				532D74611ED5399B00D2223A /* DefaultPunkAPI.swift in Sources */,
 				5347631E1ED5252700656233 /* HomeController.swift in Sources */,
 				532D74731ED54CD900D2223A /* ObservableConvertibleType.swift in Sources */,
 				532D745F1ED5376C00D2223A /* APIKeys.swift in Sources */,
 				532D745A1ED5331600D2223A /* PunkAPI.swift in Sources */,
+				532D74631ED5432D00D2223A /* Result.swift in Sources */,
 				532D746A1ED54B1D00D2223A /* ReachabilityStatus.swift in Sources */,
 				532D746E1ED54B6F00D2223A /* ReachabilityServiceError.swift in Sources */,
+				532D74651ED543B600D2223A /* PunkAPIError.swift in Sources */,
 				5347631C1ED5252700656233 /* AppDelegate.swift in Sources */,
 				532D745D1ED533CE00D2223A /* Beer.swift in Sources */,
 			);
