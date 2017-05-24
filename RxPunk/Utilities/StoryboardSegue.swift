@@ -6,6 +6,14 @@
 //  Copyright © 2017 Swift Yah. All rights reserved.
 //
 
-enum StoryboardSegue: String {
-    case showDetail
+enum StoryboardSegue {
+    case showDetail(Beer)
+}
+
+// MARK: CustomStringConvertible conforms
+
+extension StoryboardSegue: CustomStringConvertible {
+    var description: String {
+        return "showDetail"
+    }
 }

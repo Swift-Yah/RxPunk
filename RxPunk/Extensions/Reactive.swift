@@ -15,7 +15,10 @@ import class UIKit.UIViewController
 extension Reactive where Base: UIViewController {
     var performSegue: UIBindingObserver<UIViewController, StoryboardSegue> {
         return UIBindingObserver(UIElement: base) { viewController, segue in
-            viewController.performSegue(withIdentifier: segue.rawValue, sender: nil)
+            switch segue {
+            case .showDetail(let beer):
+                viewController.performSegue(withIdentifier: segue.description, sender: beer)
+            }
         }
     }
 }

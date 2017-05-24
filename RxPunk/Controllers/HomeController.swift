@@ -30,6 +30,13 @@ extension HomeController {
         setupDataSource()
         setupRx()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let beer = sender as? Beer {
+            (segue.destination as? DetailController)?.setup(beer: beer)
+            (segue.destination as? DetailController)?.setupDetail(beer: beer)
+        }
+    }
 }
 
 // MARK: Private functions
@@ -85,7 +92,7 @@ private extension HomeController {
 
 
         tableView.rx.modelSelected(Beer.self).asDriver()
-            .map({ _ in StoryboardSegue.showDetail })
+            .map({ StoryboardSegue.showDetail($0) })
             .drive(rx.performSegue)
             .disposed(by: rx.disposeBag)
     }
