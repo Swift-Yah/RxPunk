@@ -7,8 +7,11 @@
 //
 
 import NSObject_Rx
+import struct RxCocoa.Driver
 import RxDataSources
+import RxSwiftUtilities
 import protocol RxSwift.ImmediateSchedulerType
+import class RxSwift.Observable
 import class RxSwift.OperationQueueScheduler
 import class UIKit.UITableView
 import class UIKit.UIViewController
@@ -19,6 +22,18 @@ final class HomeController: UIViewController {
     // MARK: Rx
 
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Beer>>()
+
+    // MARK: Lazy variables
+
+    lazy var api: PunkAPI = {
+        let backgroundWorker = OperationQueueScheduler(maxConcurrentOperationCount: 2)
+        let itemsPerPage = 25
+        let reachabilityService = try! DefaultReachabilityService()
+        let urlSession = URLSession.shared
+
+        return DefaultPunkAPI(backgroundWorker: backgroundWorker, itemsPerPage: itemsPerPage,
+                              reachabilityService: reachabilityService, urlSession: urlSession)
+    }()
 }
 
 // MARK: UIViewController functions
@@ -41,14 +56,6 @@ extension HomeController {
 // MARK: Private functions
 
 private extension HomeController {
-    func getBackgroundWorker() -> ImmediateSchedulerType {
-        let operationQueue = OperationQueue()
-
-        operationQueue.maxConcurrentOperationCount = 2
-
-        return OperationQueueScheduler(operationQueue: operationQueue)
-    }
-
     func setupDataSource() {
         dataSource.configureCell = { (_, tableView, indexPath, beer) in
             let id = String(describing: BeerCell.self)
@@ -68,31 +75,33 @@ private extension HomeController {
     }
 
     func setupRx() {
-        let backgroundWorker = getBackgroundWorker()
-        let api = DefaultPunkAPI(backgroundWorker: backgroundWorker,
-                                 itemsPerPage: 25,
-                                 reachabilityService: try! DefaultReachabilityService(),
-                                 urlSession: URLSession.shared)
+        let tableView: UITableView = self.tableView
+        let api: PunkAPI = self.api
+        let activityIndicator = ActivityIndicator()
 
-        let viewModel = HomeViewModel(loadNextPageTrigger: tableView.rx.nextPageTrigger, api: api)
+        let loadNextPageTrigger: (Driver<PunkBeersState>) -> Driver<Void> = { state in
+            tableView.rx.contentOffset.asDriver().withLatestFrom(state).flatMapLatest({ state in
+                return tableView.isNearBottomEdge && !state.shouldLoadNextPage ? Driver.just() : Driver.empty()
+            })
+        }
 
-        viewModel.result.map({ result -> [Beer] in
-            switch result {
-            case let .success(result):
-                return result.beers
-            default:
-                return []
-            }
-        })
-            .map({ [SectionModel(model: "Beers", items: $0)] })
-            .asDriver(onErrorJustReturn: [])
+        let performRequest: (URL) -> Observable<GetBeersResponse> = { url in
+            return api.getBeers(at: url).trackActivity(activityIndicator)
+        }
+
+        let input = HomeViewModel.Input(nextPageTrigger: loadNextPageTrigger, performRequest: performRequest)
+        let viewModel = HomeViewModel(input: input, api: api)
+
+        viewModel.state.map({ $0.beers }).distinctUntilChanged()
+            .map({ [SectionModel(model: "Beers", items: $0.value)] })
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
-
 
         tableView.rx.modelSelected(Beer.self).asDriver()
             .map({ StoryboardSegue.showDetail($0) })
             .drive(rx.performSegue)
             .disposed(by: rx.disposeBag)
+
+        activityIndicator.drive(UIApplication.shared.rx.isNetworkActivityIndicatorVisible).disposed(by: rx.disposeBag)
     }
 }

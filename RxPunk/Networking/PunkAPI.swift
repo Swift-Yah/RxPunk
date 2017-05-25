@@ -9,8 +9,8 @@
 import struct Foundation.URL
 import class RxSwift.Observable
 
+typealias GetBeersResponse = Result<(beers: [Beer], hasNext: Bool), PunkAPIError>
+
 protocol PunkAPI {
-    associatedtype GetBeersResponse
-    
-    func getBeers(at: URL, nextPageTrigger: Observable<Void>) -> Observable<GetBeersResponse>
+    func getBeers(at: URL) -> Observable<GetBeersResponse>
 }

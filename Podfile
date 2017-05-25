@@ -10,6 +10,7 @@ target 'RxPunk' do
   pod 'RxDataSources'
   pod 'NSObject+Rx'
   pod 'RxFeedback'
+  pod 'RxSwiftUtilities'
 
   target 'RxPunkTests' do
     inherit! :search_paths

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Swift Yah. All rights reserved.
 //
 
-enum PunkCommand<API: PunkAPI> {
+enum PunkCommand {
     case loadMoreItems
-    case punkReceivedResponseReceived(API.GetBeersResponse)
+    case punkReceivedResponseReceived(GetBeersResponse)
 }

@@ -7,17 +7,39 @@
 //
 
 import struct Foundation.URL
+import struct RxCocoa.Driver
 import class RxSwift.Observable
-import class RxSwift.MainScheduler
+import RxFeedback
 
 struct HomeViewModel {
-    let result: Observable<DefaultPunkAPI.GetBeersResponse>
+    let state: Driver<PunkBeersState>
 
-    init(loadNextPageTrigger: Observable<Void>, api: DefaultPunkAPI) {
-        let url = URL(string: "https://api.punkapi.com/v2/beers?per_page=80")!
-
-        result = loadNextPageTrigger.flatMapLatest({
-            return api.getBeers(at: url, nextPageTrigger: loadNextPageTrigger)
-        }).observeOn(MainScheduler.instance)
+    struct Input {
+        let nextPageTrigger: (Driver<PunkBeersState>) -> Driver<Void>
+        let performRequest: (URL) -> Observable<GetBeersResponse>
     }
+
+    init(input: Input, api: PunkAPI) {
+        let listPerformerFeedback: (Driver<PunkBeersState>) -> Driver<PunkCommand> = { state in
+            return state.map({ (shouldLoadNextPage: $0.shouldLoadNextPage, nextURL: $0.nextURL) })
+                .distinctUntilChanged({ $0 == $1 })
+                .flatMapLatest({ shouldLoadNextPage, nextURL in
+                    guard shouldLoadNextPage, let url = nextURL else { return Driver.empty() }
+
+                    return input.performRequest(url).asDriver(onErrorJustReturn: .failure(PunkAPIError.networkError))
+                        .map(PunkCommand.punkReceivedResponseReceived)
+                })
+        }
+
+        let inputFeedbackLoop: (Driver<PunkBeersState>) -> Driver<PunkCommand> = { state in
+            return input.nextPageTrigger(state).map({ _ in PunkCommand.loadMoreItems })
+        }
+
+        state = Driver.system(initialState: PunkBeersState.initial, reduce: PunkBeersState.reduce,
+                              feedback: listPerformerFeedback, inputFeedbackLoop)
+    }
+}
+
+func == (lhs: (shouldLoadNextPage: Bool, nextURL: URL?), rhs: (shouldLoadNextPage: Bool, nextURL: URL?)) -> Bool {
+    return lhs.shouldLoadNextPage == rhs.shouldLoadNextPage && lhs.nextURL == rhs.nextURL
 }
