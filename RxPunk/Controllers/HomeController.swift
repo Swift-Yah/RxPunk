@@ -9,6 +9,7 @@
 import NSObject_Rx
 import struct RxCocoa.Driver
 import RxDataSources
+import RxSwiftUtilities
 import protocol RxSwift.ImmediateSchedulerType
 import class RxSwift.Observable
 import class RxSwift.OperationQueueScheduler
@@ -76,6 +77,7 @@ private extension HomeController {
     func setupRx() {
         let tableView: UITableView = self.tableView
         let api: PunkAPI = self.api
+        let activityIndicator = ActivityIndicator()
 
         let loadNextPageTrigger: (Driver<PunkBeersState>) -> Driver<Void> = { state in
             tableView.rx.contentOffset.asDriver().withLatestFrom(state).flatMapLatest({ state in
@@ -84,15 +86,22 @@ private extension HomeController {
         }
 
         let performRequest: (URL) -> Observable<GetBeersResponse> = { url in
-            return api.getBeers(at: url)
+            return api.getBeers(at: url).trackActivity(activityIndicator)
         }
 
         let input = HomeViewModel.Input(nextPageTrigger: loadNextPageTrigger, performRequest: performRequest)
         let viewModel = HomeViewModel(input: input, api: api)
 
+        viewModel.state.map({ $0.beers }).distinctUntilChanged()
+            .map({ [SectionModel(model: "Beers", items: $0.value)] })
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: rx.disposeBag)
+
         tableView.rx.modelSelected(Beer.self).asDriver()
             .map({ StoryboardSegue.showDetail($0) })
             .drive(rx.performSegue)
             .disposed(by: rx.disposeBag)
+
+        activityIndicator.drive(UIApplication.shared.rx.isNetworkActivityIndicatorVisible).disposed(by: rx.disposeBag)
     }
 }
