@@ -19,7 +19,7 @@ struct HomeViewModel {
         let performRequest: (URL) -> Observable<GetBeersResponse>
     }
 
-    init(input: Input, api: DefaultPunkAPI) {
+    init(input: Input, api: PunkAPI) {
         let listPerformerFeedback: (Driver<PunkBeersState>) -> Driver<PunkCommand> = { state in
             return state.map({ (shouldLoadNextPage: $0.shouldLoadNextPage, nextURL: $0.nextURL) })
                 .distinctUntilChanged({ $0 == $1 })
