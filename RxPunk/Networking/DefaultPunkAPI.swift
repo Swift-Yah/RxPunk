@@ -25,9 +25,7 @@ struct DefaultPunkAPI {
 // MARK: PunkAPI conforms
 
 extension DefaultPunkAPI: PunkAPI {
-    typealias GetBeersResponse = Result<(beers: [Beer], hasNext: Bool), PunkAPIError>
-
-    func getBeers(at url: URL, nextPageTrigger: Observable<Void>) -> Observable<GetBeersResponse> {
+    func getBeers(at url: URL) -> Observable<GetBeersResponse> {
         let request = URLRequest(url: url)
         let limit = itemsPerPage
 

@@ -29,7 +29,7 @@ struct PunkBeersState: Mutable {
 extension PunkBeersState {
     static let initial = PunkBeersState(page: 1)
 
-    static func reduce(state: PunkBeersState, command: PunkCommand<DefaultPunkAPI>) -> PunkBeersState {
+    static func reduce(state: PunkBeersState, command: PunkCommand) -> PunkBeersState {
         switch command {
         case .punkReceivedResponseReceived(let result):
             switch result {
