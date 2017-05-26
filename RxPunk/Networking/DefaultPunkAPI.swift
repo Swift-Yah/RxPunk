@@ -73,13 +73,7 @@ private extension Beer {
                     fatalError()
             }
 
-            let bitternessScale: Float
-
-            if let value = beer[APIKeys.bitternessScale.$] as? Float {
-                bitternessScale = value
-            } else {
-                bitternessScale = 0
-            }
+            let bitternessScale = (beer[APIKeys.bitternessScale.$] as? Float) ?? 0
 
             return Beer(alcoholLevel: alcoholLevel, bitternessScale: bitternessScale, description: description,
                         imageURL: imageURL, name: name, tagline: tagline)

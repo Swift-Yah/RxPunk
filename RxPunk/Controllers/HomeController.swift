@@ -80,6 +80,8 @@ private extension HomeController {
         let api: PunkAPI = self.api
         let activityIndicator = ActivityIndicator()
 
+        let searchTrigger = searchBar.rx.text.orEmpty.asDriver().throttle(0.35)
+
         let loadNextPageTrigger: (Driver<PunkBeersState>) -> Driver<Void> = { state in
             tableView.rx.contentOffset.asDriver().withLatestFrom(state).flatMapLatest({ state in
                 return tableView.isNearBottomEdge && !state.shouldLoadNextPage ? Driver.just() : Driver.empty()
@@ -90,7 +92,7 @@ private extension HomeController {
             return api.getBeers(at: url).trackActivity(activityIndicator)
         }
 
-        let input = HomeViewModel.Input(nextPageTrigger: loadNextPageTrigger, performRequest: performRequest)
+        let input = HomeViewModel.Input(searchTrigger: searchTrigger, nextPageTrigger: loadNextPageTrigger, performRequest: performRequest)
         let viewModel = HomeViewModel(input: input, api: api)
 
         viewModel.state.map({ $0.beers }).distinctUntilChanged()
