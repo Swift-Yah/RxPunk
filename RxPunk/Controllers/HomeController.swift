@@ -17,6 +17,7 @@ import class UIKit.UITableView
 import class UIKit.UIViewController
 
 final class HomeController: UIViewController {
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: Rx
