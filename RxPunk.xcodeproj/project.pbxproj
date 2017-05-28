@@ -222,11 +222,11 @@
 		5347630F1ED5252700656233 = {
 			isa = PBXGroup;
 			children = (
+				0AF099CB2EF2E8528E18C214 /* Frameworks */,
+				7B35715D0E8137A23CB13178 /* Pods */,
 				534763191ED5252700656233 /* Products */,
 				5347631A1ED5252700656233 /* RxPunk */,
 				5347632F1ED5252700656233 /* RxPunkTests */,
-				7B35715D0E8137A23CB13178 /* Pods */,
-				0AF099CB2EF2E8528E18C214 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -280,8 +280,8 @@
 		5347633C1ED5274F00656233 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5347631D1ED5252700656233 /* HomeController.swift */,
 				532D74741ED557F700D2223A /* DetailController.swift */,
+				5347631D1ED5252700656233 /* HomeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
