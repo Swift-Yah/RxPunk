@@ -12,7 +12,7 @@ import RxDataSources
 import RxSwiftUtilities
 import protocol RxSwift.ImmediateSchedulerType
 import class RxSwift.Observable
-import class RxSwift.OperationQueueScheduler
+import class RxSwift.SerialDispatchQueueScheduler
 import class UIKit.UITableView
 import class UIKit.UIViewController
 
@@ -27,7 +27,7 @@ final class HomeController: UIViewController {
     // MARK: Lazy variables
 
     lazy var api: PunkAPI = {
-        let backgroundWorker = OperationQueueScheduler(maxConcurrentOperationCount: 2)
+        let backgroundWorker = SerialDispatchQueueScheduler(qos: .background)
         let itemsPerPage = 25
         let reachabilityService = try! DefaultReachabilityService()
         let urlSession = URLSession.shared
