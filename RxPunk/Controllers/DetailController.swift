@@ -6,18 +6,21 @@
 //  Copyright © 2017 Swift Yah. All rights reserved.
 //
 
+import struct UIKit.CGFloat
+import struct UIKit.IndexPath
 import class UIKit.UIImageView
 import class UIKit.UILabel
-import class UIKit.UITextView
-import class UIKit.UIViewController
+import class UIKit.UITableView
+import var UIKit.UITableViewAutomaticDimension
+import class UIKit.UITableViewController
 
-final class DetailController: UIViewController, BeerDetailViewable {
+final class DetailController: UITableViewController, BeerDetailViewable {
     @IBOutlet weak var beerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var taglineLabel: UILabel!
     @IBOutlet weak var alcoholLevelLabel: UILabel!
     @IBOutlet weak var bitternessScaleLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: File private variables
     
@@ -39,6 +42,18 @@ extension DetailController {
         super.viewDidLoad()
         
         setupUI()
+    }
+}
+
+// MARK: UITableViewDelegate conforms
+
+extension DetailController {
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 }
 
