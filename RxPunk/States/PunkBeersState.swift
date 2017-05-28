@@ -43,7 +43,7 @@ extension PunkBeersState {
                     $0.page += 1
                     $0.shouldLoadNextPage = false
                     $0.beers = Version($0.beers.value + beers)
-                    $0.nextURL = hasNext ? APIKeys.getBeers($0.page, "") : nil
+                    $0.nextURL = hasNext ? APIKeys.getBeers($0.page, $0.searchText) : nil
                     $0.failure = nil
                 })
             case let .failure(error):
