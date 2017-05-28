@@ -54,6 +54,18 @@ extension HomeController {
     }
 }
 
+// MARK: UITableViewDelegate conforms
+
+extension HomeController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+}
+
 // MARK: Private functions
 
 private extension HomeController {
@@ -104,6 +116,8 @@ private extension HomeController {
             .map({ StoryboardSegue.showDetail($0) })
             .drive(rx.performSegue)
             .disposed(by: rx.disposeBag)
+
+        tableView.rx.setDelegate(self).disposed(by: rx.disposeBag)
 
         activityIndicator.drive(UIApplication.shared.rx.isNetworkActivityIndicatorVisible).disposed(by: rx.disposeBag)
     }
