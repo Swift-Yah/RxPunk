@@ -15,15 +15,16 @@ struct HomeViewModel {
     let state: Driver<PunkBeersState>
 
     struct Input {
+        let searchTrigger: Driver<String>
         let nextPageTrigger: (Driver<PunkBeersState>) -> Driver<Void>
         let performRequest: (URL) -> Observable<GetBeersResponse>
     }
 
     init(input: Input, api: PunkAPI) {
         let listPerformerFeedback: (Driver<PunkBeersState>) -> Driver<PunkCommand> = { state in
-            return state.map({ (shouldLoadNextPage: $0.shouldLoadNextPage, nextURL: $0.nextURL) })
+            return state.map({ (searchText: $0.searchText, shouldLoadNextPage: $0.shouldLoadNextPage, nextURL: $0.nextURL) })
                 .distinctUntilChanged({ $0 == $1 })
-                .flatMapLatest({ shouldLoadNextPage, nextURL in
+                .flatMapLatest({ _, shouldLoadNextPage, nextURL in
                     guard shouldLoadNextPage, let url = nextURL else { return Driver.empty() }
 
                     return input.performRequest(url).asDriver(onErrorJustReturn: .failure(PunkAPIError.networkError))
@@ -32,7 +33,10 @@ struct HomeViewModel {
         }
 
         let inputFeedbackLoop: (Driver<PunkBeersState>) -> Driver<PunkCommand> = { state in
-            return input.nextPageTrigger(state).map({ _ in PunkCommand.loadMoreItems })
+            let loadNextPage = input.nextPageTrigger(state).map({ _ in PunkCommand.loadMoreItems })
+            let searchTrigger = input.searchTrigger.map(PunkCommand.changeText)
+
+            return Driver.merge(loadNextPage, searchTrigger)
         }
 
         state = Driver.system(initialState: PunkBeersState.initial, reduce: PunkBeersState.reduce,
@@ -40,6 +44,6 @@ struct HomeViewModel {
     }
 }
 
-func == (lhs: (shouldLoadNextPage: Bool, nextURL: URL?), rhs: (shouldLoadNextPage: Bool, nextURL: URL?)) -> Bool {
-    return lhs.shouldLoadNextPage == rhs.shouldLoadNextPage && lhs.nextURL == rhs.nextURL
+func == (lhs: (searchText: String, shouldLoadNextPage: Bool, nextURL: URL?), rhs: (searchText: String, shouldLoadNextPage: Bool, nextURL: URL?)) -> Bool {
+    return lhs.searchText == rhs.searchText && lhs.shouldLoadNextPage == rhs.shouldLoadNextPage && lhs.nextURL == rhs.nextURL
 }

@@ -10,16 +10,18 @@ import struct Foundation.URL
 
 struct PunkBeersState: Mutable {
     var page: Int
+    var searchText: String
     var shouldLoadNextPage: Bool
     var beers: Version<[Beer]>
     var nextURL: URL?
     var failure: PunkAPIError?
 
-    init(page: Int) {
-        self.page = page
+    init(searchText: String = "") {
+        self.page = 1
         self.shouldLoadNextPage = true
         self.beers = Version([])
-        self.nextURL = APIKeys.getBeers(page)
+        self.searchText = searchText
+        self.nextURL = APIKeys.getBeers(page, searchText)
         self.failure = nil
     }
 }
@@ -27,10 +29,13 @@ struct PunkBeersState: Mutable {
 // MARK: Static elements
 
 extension PunkBeersState {
-    static let initial = PunkBeersState(page: 1)
+    static let initial = PunkBeersState()
 
     static func reduce(state: PunkBeersState, command: PunkCommand) -> PunkBeersState {
         switch command {
+        case .changeText(let text):
+            return PunkBeersState(searchText: text)
+
         case .punkReceivedResponseReceived(let result):
             switch result {
             case let .success((beers, hasNext)):
@@ -38,7 +43,7 @@ extension PunkBeersState {
                     $0.page += 1
                     $0.shouldLoadNextPage = false
                     $0.beers = Version($0.beers.value + beers)
-                    $0.nextURL = hasNext ? APIKeys.getBeers($0.page) : nil
+                    $0.nextURL = hasNext ? APIKeys.getBeers($0.page, "") : nil
                     $0.failure = nil
                 })
             case let .failure(error):

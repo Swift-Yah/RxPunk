@@ -7,6 +7,7 @@
 //
 
 enum PunkCommand {
+    case changeText(String)
     case loadMoreItems
     case punkReceivedResponseReceived(GetBeersResponse)
 }
