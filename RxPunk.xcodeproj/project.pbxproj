@@ -37,6 +37,7 @@
 		534763231ED5252700656233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 534763221ED5252700656233 /* Assets.xcassets */; };
 		534763261ED5252700656233 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 534763241ED5252700656233 /* LaunchScreen.storyboard */; };
 		534763311ED5252700656233 /* RxPunkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534763301ED5252700656233 /* RxPunkTests.swift */; };
+		53EF48EB1EDB94AE005696A8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF48EA1EDB94AE005696A8 /* UIImageView.swift */; };
 		BBE125398F0B55C1DC3D5B46 /* Pods_RxPunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA1C45CF16C322DCAC83363 /* Pods_RxPunk.framework */; };
 		C8F2EA115B9DD96870D2FC31 /* Pods_RxPunkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A66BBD526A821E5581C607 /* Pods_RxPunkTests.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		5347632C1ED5252700656233 /* RxPunkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxPunkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		534763301ED5252700656233 /* RxPunkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPunkTests.swift; sourceTree = "<group>"; };
 		534763321ED5252700656233 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53EF48EA1EDB94AE005696A8 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		6612867CC045D097760327F9 /* Pods-RxPunkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxPunkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxPunkTests/Pods-RxPunkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ACA1C45CF16C322DCAC83363 /* Pods_RxPunk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxPunk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B725B2CBA27554FB610AC4D8 /* Pods-RxPunkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxPunkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxPunkTests/Pods-RxPunkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				532D74721ED54CD900D2223A /* ObservableConvertibleType.swift */,
 				532D74861ED562AC00D2223A /* Reactive.swift */,
+				53EF48EA1EDB94AE005696A8 /* UIImageView.swift */,
 				532D74841ED5624C00D2223A /* UIScrollView.swift */,
 			);
 			path = Extensions;
@@ -219,11 +222,11 @@
 		5347630F1ED5252700656233 = {
 			isa = PBXGroup;
 			children = (
+				0AF099CB2EF2E8528E18C214 /* Frameworks */,
+				7B35715D0E8137A23CB13178 /* Pods */,
 				534763191ED5252700656233 /* Products */,
 				5347631A1ED5252700656233 /* RxPunk */,
 				5347632F1ED5252700656233 /* RxPunkTests */,
-				7B35715D0E8137A23CB13178 /* Pods */,
-				0AF099CB2EF2E8528E18C214 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,8 +280,8 @@
 		5347633C1ED5274F00656233 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5347631D1ED5252700656233 /* HomeController.swift */,
 				532D74741ED557F700D2223A /* DetailController.swift */,
+				5347631D1ED5252700656233 /* HomeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				532D74781ED55AE700D2223A /* BeerCell.swift in Sources */,
 				532D74701ED54BAE00D2223A /* DefaultReachabilityService.swift in Sources */,
 				532D746C1ED54B4E00D2223A /* ReachabilityService.swift in Sources */,
+				53EF48EB1EDB94AE005696A8 /* UIImageView.swift in Sources */,
 				532D74851ED5624C00D2223A /* UIScrollView.swift in Sources */,
 				532D748B1ED56ABB00D2223A /* Version.swift in Sources */,
 				532D74931ED5715E00D2223A /* Mutable.swift in Sources */,
