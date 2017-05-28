@@ -11,6 +11,7 @@ target 'RxPunk' do
   pod 'NSObject+Rx'
   pod 'RxFeedback'
   pod 'RxSwiftUtilities'
+  pod 'Shimmer'
 
   target 'RxPunkTests' do
     inherit! :search_paths
